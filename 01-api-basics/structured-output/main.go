@@ -7,6 +7,7 @@ import (
 	"log"
 
 	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/joho/godotenv"
 )
 
 type MovieReview struct {
@@ -19,6 +20,9 @@ type MovieReview struct {
 }
 
 func main() {
+	if err := godotenv.Load(".env"); err != nil {
+		log.Fatal(err)
+	}
 	client := anthropic.NewClient()
 
 	// Use tool_choice to force Claude to return structured JSON.

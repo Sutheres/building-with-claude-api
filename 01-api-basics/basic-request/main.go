@@ -6,9 +6,13 @@ import (
 	"log"
 
 	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	if err := godotenv.Load(".env"); err != nil {
+		log.Fatal(err)
+	}
 	client := anthropic.NewClient()
 
 	resp, err := client.Messages.New(context.Background(), anthropic.MessageNewParams{

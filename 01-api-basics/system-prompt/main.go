@@ -6,9 +6,13 @@ import (
 	"log"
 
 	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	if err := godotenv.Load(".env"); err != nil {
+		log.Fatal(err)
+	}
 	client := anthropic.NewClient()
 
 	// System prompts give Claude a persona or set of instructions that persist

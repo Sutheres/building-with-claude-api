@@ -45,7 +45,7 @@ building-with-claude-api/
 Each subdirectory is a standalone runnable program:
 
 ```bash
-go run ./01-api-basics/basic-request/
+go run ./01-api-basics/01-basic-request/
 ```
 
 Environment variables required:

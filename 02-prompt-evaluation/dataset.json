@@ -1,0 +1,17 @@
+[
+  {
+    "task": "Create a JSON IAM policy document that allows read-only access (s3:GetObject and s3:ListBucket) to an S3 bucket named 'reports-bucket' and its objects",
+    "format": "json",
+    "solution_criteria": "Valid IAM policy JSON with Version and a Statement array; Effect 'Allow'; actions s3:GetObject and s3:ListBucket; resource ARNs for both the bucket and its objects"
+  },
+  {
+    "task": "Write a Go function that extracts the region component from an AWS ARN string, e.g. returns \"us-east-1\" from \"arn:aws:ec2:us-east-1:123456789012:instance/i-abc\"",
+    "format": "go",
+    "solution_criteria": "Function splits the ARN on ':' and returns the 4th field (index 3); handles the standard ARN layout"
+  },
+  {
+    "task": "Create a regular expression that validates an AWS S3 bucket name: 3-63 characters, only lowercase letters, numbers, and hyphens, and it must start and end with a letter or number",
+    "format": "regex",
+    "solution_criteria": "Regex enforces a length of 3-63, restricts characters to lowercase letters, digits, and hyphens, and requires the first and last character to be alphanumeric"
+  }
+]

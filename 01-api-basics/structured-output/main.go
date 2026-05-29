@@ -11,12 +11,12 @@ import (
 )
 
 type MovieReview struct {
-	Title    string   `json:"title"`
-	Year     int      `json:"year"`
-	Rating   float64  `json:"rating"`
-	Summary  string   `json:"summary"`
-	Pros     []string `json:"pros"`
-	Cons     []string `json:"cons"`
+	Title   string   `json:"title"`
+	Year    int      `json:"year"`
+	Rating  float64  `json:"rating"`
+	Summary string   `json:"summary"`
+	Pros    []string `json:"pros"`
+	Cons    []string `json:"cons"`
 }
 
 func main() {
@@ -49,13 +49,13 @@ func main() {
 					"description": "One-sentence summary of the review",
 				},
 				"pros": map[string]any{
-					"type":  "array",
-					"items": map[string]any{"type": "string"},
+					"type":        "array",
+					"items":       map[string]any{"type": "string"},
 					"description": "List of positives",
 				},
 				"cons": map[string]any{
-					"type":  "array",
-					"items": map[string]any{"type": "string"},
+					"type":        "array",
+					"items":       map[string]any{"type": "string"},
 					"description": "List of negatives",
 				},
 			},

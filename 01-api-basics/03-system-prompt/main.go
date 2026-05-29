@@ -47,13 +47,13 @@ func main() {
 	ctx := context.Background()
 
 	// This system prompt tightly constrains the output: code only, no prose.
-	system := `You are a helpful assistant that writes Python code.
+	system := `You are a helpful assistant that writes Go code.
 Your responses should be concise and to the point.
 You should not include any other text than the code.
 You should not include any explanations.`
 
 	answer, err := chat(ctx, client, system,
-		"Write a Python function that checks a string for duplicate characters.")
+		"Write a Go function that checks a string for duplicate characters.")
 	if err != nil {
 		log.Fatal(err)
 	}

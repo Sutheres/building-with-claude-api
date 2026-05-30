@@ -13,6 +13,10 @@ import (
 
 type chatOption func(*anthropic.MessageNewParams)
 
+type testCase struct {
+	Task string `json:"task"`
+}
+
 func main() {
 	if err := godotenv.Load(".env"); err != nil {
 		log.Fatal(err)
@@ -87,11 +91,7 @@ func chat(ctx context.Context, client anthropic.Client, messages []anthropic.Mes
 	return "", errors.New("no text blocks returned from anthropic")
 }
 
-type DataItem struct {
-	Task string `json:"task"`
-}
-
-func generateDataset(ctx context.Context, client anthropic.Client) ([]DataItem, error) {
+func generateDataset(ctx context.Context, client anthropic.Client) ([]testCase, error) {
 	prompt := `
 Generate an evaluation dataset ...
 
@@ -113,7 +113,7 @@ Please generate 3 objects.
 `
 
 	var messages []anthropic.MessageParam
-	var dataset []DataItem
+	var dataset []testCase
 
 	messages = addUserMessage(messages, prompt)
 	messages = addAssistantMessage(messages, "```json")
